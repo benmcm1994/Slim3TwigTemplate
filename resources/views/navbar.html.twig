@@ -1,0 +1,49 @@
+<nav class="topbar topbar-inverse topbar-expand-md topbar-sticky">
+    <div class="container">
+        <div class="topbar-left">
+            <button class="topbar-toggler" style="margin-top: 10px; margin-right: 5px;">☰</button>
+            <a class="topbar-brand" href="//{{ url }}">
+                <img class="logo-default" src="img/logo.png" alt="logo">
+                <img class="logo-inverse" src="img/logo-dark.png" alt="logo">
+            </a>
+        </div>
+
+        <div class="topbar-right">
+            <ul class="topbar-nav nav nav-primary nav-hero">
+                <li class="nav-item"><a class="nav-link {% if route == '/' %}active{% endif %}" href="//{{ base_url() }}">Home</a></li>
+
+                <li class="nav-item hidden-md-down">
+                    {% if route == '/account-manager' or route == '/trade-copier' or route == '/signal-provider' or route == '/whitelabel' %}
+                    {% set active = true %}
+                    {% endif %}
+                    <a class="nav-link {% if active is defined %}active{% endif %}" style="cursor: pointer;">Features <i class="fa fa-caret-down"></i></a>
+                    <div class="nav-submenu">
+                        <a class="nav-link {% if route == '/account-manager' %}active{% endif %}" href="{{ base_url() }}/account-manager">Account Manager</a>
+                        <a class="nav-link {% if route == '/trade-copier' %}active{% endif %}" href="//{{ url }}/trade-copier">Trade Copier</a>
+                        <a class="nav-link {% if route == '/signal-provider' %}active{% endif %}" href="//{{ url }}/signal-provider">Signal Provider</a>
+                        <a class="nav-link {% if route == '/whitelabel' %}active{% endif %}" href="//{{ url }}/whitelabel">Whitelabel</a>
+                    </div>
+                </li>
+
+                <li class="nav-item hidden-md-down"><a class="nav-link {% if route == '/pricing' %}active{% endif %}" href="//{{ url }}/pricing">Pricing</a></li>
+
+                <li class="nav-item hidden-lg-up"><a class="nav-link {% if route == '/account-manager' %}active{% endif %}" href="//{{ url }}/account-manager">Account Manager</a></li>
+                <li class="nav-item hidden-lg-up"><a class="nav-link {% if route == '/trade-copier' %}active{% endif %}" href="//{{ url }}/trade-copier">Trade Copier</a></li>
+                <li class="nav-item hidden-lg-up"><a class="nav-link {% if route == '/signal-provider' %}active{% endif %}" href="//{{ url }}/signal-provider">Signal Provider</a></li>
+                <li class="nav-item hidden-lg-up"><a class="nav-link {% if route == '/whitelabel' %}active{% endif %}" href="//{{ url }}/whitelabel">Whitelabel</a></li>
+
+                <li class="nav-item hidden-lg-up"><a class="nav-link {% if route == '/pricing' %}active{% endif %}" href="//{{ url }}/pricing">Pricing</a></li>
+
+                <br>
+
+                <li class="nav-item hidden-lg-up"><a class="btn btn-sm btn-block btn-primary" href="//{{ url_panel }}">Login</a></li>
+
+            </ul>
+
+            <div class="d-inline-flex ml-30">
+                <a class="btn btn-sm btn-primary mr-8" href="//{{ url_register }}">Get Started</a>
+                <a class="btn btn-sm btn-outline btn-primary hidden-sm-down" href="//{{ url_panel }}">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
